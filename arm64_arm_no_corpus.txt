@@ -1,0 +1,13 @@
+INFO: Seed: 2459690206
+INFO: Loaded 1 modules   (9 inline 8-bit counters): 9 [0x17a39c4, 0x17a39cd), 
+INFO: Loaded 1 PC tables (9 PCs): 9 [0x13b6a60,0x13b6af0), 
+INFO: -max_len is not provided; libFuzzer will not generate inputs larger than 4096 bytes
+INFO: A corpus is not provided, starting from an empty corpus
+#2	INITED cov: 3 ft: 4 corp: 1/1b exec/s: 0 rss: 33Mb
+#12	NEW    cov: 4 ft: 5 corp: 2/5b lim: 4 exec/s: 0 rss: 50Mb L: 4/4 MS: 5 InsertByte-ShuffleBytes-CopyPart-InsertByte-CrossOver-
+#2048	pulse  cov: 4 ft: 5 corp: 2/5b lim: 21 exec/s: 682 rss: 346Mb
+#4096	pulse  cov: 4 ft: 5 corp: 2/5b lim: 43 exec/s: 682 rss: 347Mb
+#8192	pulse  cov: 4 ft: 5 corp: 2/5b lim: 80 exec/s: 682 rss: 348Mb
+#16384	pulse  cov: 4 ft: 5 corp: 2/5b lim: 163 exec/s: 630 rss: 352Mb
+#32768	pulse  cov: 4 ft: 5 corp: 2/5b lim: 325 exec/s: 574 rss: 358Mb
+#65536	pulse  cov: 4 ft: 5 corp: 2/5b lim: 652 exec/s: 564 rss: 362Mb

@@ -1,0 +1,30 @@
+INFO: Seed: 2779339443
+INFO: Loaded 1 modules   (9 inline 8-bit counters): 9 [0x17a39c4, 0x17a39cd), 
+INFO: Loaded 1 PC tables (9 PCs): 9 [0x13b6a60,0x13b6af0), 
+INFO:        3 files found in my_corpus/
+INFO:    42960 files found in corpus_fuzz_emu_arm64_arm
+INFO: -max_len is not provided; libFuzzer will not generate inputs larger than 4096 bytes
+INFO: seed corpus: files: 42963 min: 1b max: 4095b total: 2101567b rss: 60Mb
+#2048	pulse  cov: 4 ft: 5 corp: 2/5b exec/s: 682 rss: 372Mb
+#4096	pulse  cov: 4 ft: 5 corp: 2/5b exec/s: 682 rss: 373Mb
+#8192	pulse  cov: 4 ft: 5 corp: 2/5b exec/s: 682 rss: 373Mb
+#16384	pulse  cov: 4 ft: 5 corp: 2/5b exec/s: 630 rss: 375Mb
+
+=================================================================
+==219870==ERROR: LeakSanitizer: detected memory leaks
+
+Direct leak of 128 byte(s) in 1 object(s) allocated from:
+    #0 0x523fd2 in calloc /local/mnt/workspace/bcain_clang_bcain-ubuntu_23113/llvm/utils/release/final/llvm.src/projects/compiler-rt/lib/asan/asan_malloc_linux.cc:154:3
+    #1 0xad8149 in tb_invalidate_phys_page_fast_aarch64 (/home/elaine/unicorn/tests/fuzz/fuzz_emu_arm64_arm+0xad8149)
+
+SUMMARY: AddressSanitizer: 128 byte(s) leaked in 1 allocation(s).
+
+INFO: a leak has been found in the initial corpus.
+
+INFO: to ignore leaks on libFuzzer side use -detect_leaks=0.
+
+MS: 0 ; base unit: 0000000000000000000000000000000000000000
+0xea,0x0,0x0,0x10,0x37,0x2d,0xea,0x4e,0x7e,0xfd,0x5f,0xab,0x46,0x11,0xbe,0xd,0xf0,0xff,0x77,0x36,0x3b,0x1,
+\xea\x00\x00\x107-\xeaN~\xfd_\xabF\x11\xbe\x0d\xf0\xffw6;\x01
+artifact_prefix='./'; Test unit written to ./leak-a4a61f5acb5305952a58a6281410a7275df0c03d
+Base64: 6gAAEDct6k5+/V+rRhG+DfD/dzY7AQ==

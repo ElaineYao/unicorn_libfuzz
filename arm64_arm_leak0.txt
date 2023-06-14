@@ -1,0 +1,26 @@
+INFO: Seed: 3116727035
+INFO: Loaded 1 modules   (9 inline 8-bit counters): 9 [0x17a39c4, 0x17a39cd), 
+INFO: Loaded 1 PC tables (9 PCs): 9 [0x13b6a60,0x13b6af0), 
+INFO:        3 files found in my_corpus/
+INFO:    42960 files found in corpus_fuzz_emu_arm64_arm
+INFO: -max_len is not provided; libFuzzer will not generate inputs larger than 4096 bytes
+INFO: seed corpus: files: 42963 min: 1b max: 4095b total: 2101567b rss: 60Mb
+#2048	pulse  cov: 4 ft: 5 corp: 2/5b exec/s: 682 rss: 372Mb
+#4096	pulse  cov: 4 ft: 5 corp: 2/5b exec/s: 682 rss: 373Mb
+#8192	pulse  cov: 4 ft: 5 corp: 2/5b exec/s: 682 rss: 373Mb
+#16384	pulse  cov: 4 ft: 5 corp: 2/5b exec/s: 606 rss: 374Mb
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+==219982==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000000 (pc 0x7f24a11d7779 bp 0x62f0004a1b50 sp 0x7ffc8bbbe060 T0)
+==219982==The signal is caused by a WRITE memory access.
+==219982==Hint: address points to the zero page.
+    #0 0x7f24a11d7778  (<unknown module>)
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV (<unknown module>) 
+==219982==ABORTING
+MS: 0 ; base unit: 0000000000000000000000000000000000000000
+0xbd,0xaa,0x45,0xaa,0xa9,0xa9,0xaa,0xaa,0xaa,0x0,0x10,0xd5,0xbc,0x0,0x10,0xd5,0xbd,0x0,0x10,0xd5,0xbd,0x0,0x10,0x30,0xbd,0x0,0x10,0xd5,0xbc,0x0,0x10,0xd5,
+\xbd\xaaE\xaa\xa9\xa9\xaa\xaa\xaa\x00\x10\xd5\xbc\x00\x10\xd5\xbd\x00\x10\xd5\xbd\x00\x100\xbd\x00\x10\xd5\xbc\x00\x10\xd5
+artifact_prefix='./'; Test unit written to ./crash-060d03892e7a2090501b0033d5798c76d88a1912
+Base64: vapFqqmpqqqqABDVvAAQ1b0AENW9ABAwvQAQ1bwAENU=
