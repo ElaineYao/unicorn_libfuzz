@@ -11,7 +11,7 @@ int initialized = 0;
 FILE * outfile = NULL;
 
 
-extern "C" int LLVMFuzzerTestOneInput(const uint8_t *Data, size_t Size) {
+int LLVMFuzzerTestOneInput(const uint8_t *Data, size_t Size) {
     uc_err err;
 
     if (initialized == 0) {

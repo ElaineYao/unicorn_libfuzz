@@ -1,0 +1,38 @@
+INFO: Seed: 3119578788
+INFO: Loaded 1 modules   (9 inline 8-bit counters): 9 [0x17a39c4, 0x17a39cd), 
+INFO: Loaded 1 PC tables (9 PCs): 9 [0x13b6a60,0x13b6af0), 
+INFO:        1 files found in my_corpus/
+INFO:    42960 files found in corpus_fuzz_emu_x86_64/
+INFO: -max_len is not provided; libFuzzer will not generate inputs larger than 4096 bytes
+INFO: seed corpus: files: 42961 min: 1b max: 4095b total: 2101561b rss: 59Mb
+==221241== ERROR: libFuzzer: deadly signal
+    #0 0x52c711 in __sanitizer_print_stack_trace /local/mnt/workspace/bcain_clang_bcain-ubuntu_23113/llvm/utils/release/final/llvm.src/projects/compiler-rt/lib/asan/asan_stack.cc:86:3
+    #1 0x4774e8 in fuzzer::PrintStackTrace() /local/mnt/workspace/bcain_clang_bcain-ubuntu_23113/llvm/utils/release/final/llvm.src/projects/compiler-rt/lib/fuzzer/FuzzerUtil.cpp:205:5
+    #2 0x45cc53 in fuzzer::Fuzzer::CrashCallback() /local/mnt/workspace/bcain_clang_bcain-ubuntu_23113/llvm/utils/release/final/llvm.src/projects/compiler-rt/lib/fuzzer/FuzzerLoop.cpp:232:3
+    #3 0x7f77882e341f  (/lib/x86_64-linux-gnu/libpthread.so.0+0x1441f)
+    #4 0x7f77880fd00a in raise (/lib/x86_64-linux-gnu/libc.so.6+0x4300a)
+    #5 0x7f77880dc858 in abort (/lib/x86_64-linux-gnu/libc.so.6+0x22858)
+    #6 0x421351 in temp_load.cold (/home/elaine/unicorn/tests/fuzz/fuzz_emu_x86_64+0x421351)
+    #7 0xbd1389 in tcg_gen_code_x86_64 (/home/elaine/unicorn/tests/fuzz/fuzz_emu_x86_64+0xbd1389)
+    #8 0xbb486e in tb_gen_code_x86_64 (/home/elaine/unicorn/tests/fuzz/fuzz_emu_x86_64+0xbb486e)
+    #9 0xbc560d in cpu_exec_x86_64 (/home/elaine/unicorn/tests/fuzz/fuzz_emu_x86_64+0xbc560d)
+    #10 0xbfa3cb in resume_all_vcpus_x86_64 (/home/elaine/unicorn/tests/fuzz/fuzz_emu_x86_64+0xbfa3cb)
+    #11 0x55906d in uc_emu_start (/home/elaine/unicorn/tests/fuzz/fuzz_emu_x86_64+0x55906d)
+    #12 0x556126 in LLVMFuzzerTestOneInput /home/elaine/unicorn/tests/fuzz/fuzz_emu_x86_64.c:50:9
+    #13 0x45e1e1 in fuzzer::Fuzzer::ExecuteCallback(unsigned char const*, unsigned long) /local/mnt/workspace/bcain_clang_bcain-ubuntu_23113/llvm/utils/release/final/llvm.src/projects/compiler-rt/lib/fuzzer/FuzzerLoop.cpp:553:15
+    #14 0x45da25 in fuzzer::Fuzzer::RunOne(unsigned char const*, unsigned long, bool, fuzzer::InputInfo*, bool*) /local/mnt/workspace/bcain_clang_bcain-ubuntu_23113/llvm/utils/release/final/llvm.src/projects/compiler-rt/lib/fuzzer/FuzzerLoop.cpp:469:3
+    #15 0x4602e7 in fuzzer::Fuzzer::ReadAndExecuteSeedCorpora(std::Fuzzer::vector<fuzzer::SizedFile, fuzzer::fuzzer_allocator<fuzzer::SizedFile> >&) /local/mnt/workspace/bcain_clang_bcain-ubuntu_23113/llvm/utils/release/final/llvm.src/projects/compiler-rt/lib/fuzzer/FuzzerLoop.cpp:766:7
+    #16 0x460659 in fuzzer::Fuzzer::Loop(std::Fuzzer::vector<fuzzer::SizedFile, fuzzer::fuzzer_allocator<fuzzer::SizedFile> >&) /local/mnt/workspace/bcain_clang_bcain-ubuntu_23113/llvm/utils/release/final/llvm.src/projects/compiler-rt/lib/fuzzer/FuzzerLoop.cpp:793:3
+    #17 0x44e7a8 in fuzzer::FuzzerDriver(int*, char***, int (*)(unsigned char const*, unsigned long)) /local/mnt/workspace/bcain_clang_bcain-ubuntu_23113/llvm/utils/release/final/llvm.src/projects/compiler-rt/lib/fuzzer/FuzzerDriver.cpp:825:6
+    #18 0x477c12 in main /local/mnt/workspace/bcain_clang_bcain-ubuntu_23113/llvm/utils/release/final/llvm.src/projects/compiler-rt/lib/fuzzer/FuzzerMain.cpp:19:10
+    #19 0x7f77880de082 in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x24082)
+    #20 0x42293d in _start (/home/elaine/unicorn/tests/fuzz/fuzz_emu_x86_64+0x42293d)
+
+NOTE: libFuzzer has rudimentary signal handlers.
+      Combine libFuzzer with AddressSanitizer or similar for better crash reports.
+SUMMARY: libFuzzer: deadly signal
+MS: 0 ; base unit: 0000000000000000000000000000000000000000
+0xff,0xdf,0x58,0x9e,
+\xff\xdfX\x9e
+artifact_prefix='./'; Test unit written to ./crash-be0571b17bdad5d4ce6681537cd2687733c49886
+Base64: /99Yng==

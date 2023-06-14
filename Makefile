@@ -20,4 +20,4 @@ clean:
 	rm -rf ${ALL_TESTS}
 
 fuzz%: fuzz%.c
-	clang++ $(CFLAGS) -fsanitize=address,fuzzer $^ $(LDFLAGS) -o $@ -lm
+	clang $(CFLAGS) -fsanitize=address,fuzzer $^ $(LDFLAGS) -o $@ -lm
